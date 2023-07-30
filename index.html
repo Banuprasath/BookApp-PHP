@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="register.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="phone">Phone No:</label>
+            <input type="number" id="phone" name="phone" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="repassword">Confirm Password:</label>
+            <input type="password" id="repassword" name="repassword" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="username" name="city" required>
+
+            <!-- <select id="location" name="location" required>
+                <option value="" disabled selected>Select City</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Madurai">Madurai</option>
+                <!-- Add more city options as needed 
+            </select> -->
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+</body>
+
+</html>
