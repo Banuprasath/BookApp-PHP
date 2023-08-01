@@ -1,0 +1,57 @@
+/* Basic styling for labels and inputs */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Styling for the submit button */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Styling for the form fields when they are in focus */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="file"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Styling for the file input */
+input[type="file"] {
+    padding: 5px;
+}
+
+/* Styling for the labels and inputs in a single row */
+label,
+input {
+    display: block;
+    width: 100%;
+}
+
+/* Adding some space between rows */
+br {
+    margin-bottom: 10px;
+}

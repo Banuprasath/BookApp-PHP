@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get user input from the login form
     $user=$_POST['user'];
          $pass=$_POST['pass'];
+         
 
     // Prepare the statement
     $stmt = $mysqli->prepare("SELECT * FROM userlg WHERE  username='$user' AND `password` ='$pass'");
@@ -60,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($pass== $users['password']) {
                 // Password is correct, login successful
                 echo "Login successful!";
-                header("Location: index.html");
+                header("Location: Dashboard/index.php");
                 exit; 
                 // You can add further actions here, like setting session variables, redirecting, etc.
             } else {

@@ -32,7 +32,7 @@ if(!empty($username) || !empty($phone)|| !empty($password)|| !empty($repassword)
         $SELECT="SELECT phone from userlg WHERE phone =? LIMIT 1;";
         $INSERT="INSERT into userlg (username,phone,`password`,repassword,city) values(?,?,?,?,?) ;";
         $stmt=$con->prepare($SELECT);
-        // $stmt->bind_param("i",$phone);
+        $stmt->bind_param("i",$phone);
         $stmt->execute();
         $stmt->bind_result($phone);
         $stmt->store_result();
@@ -50,7 +50,7 @@ if(!empty($username) || !empty($phone)|| !empty($password)|| !empty($repassword)
 
         }
         $stmt->close();
-        // $stmt->close();
+    // $stmt->close();
     }
 }
      else{
