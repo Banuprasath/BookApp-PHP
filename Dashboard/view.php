@@ -50,7 +50,7 @@
                                     </div>
                                 </form>
 
-<table>
+<table class='table table-dark table-striped table-hover' >
     <tr>
         <th>UserName</th>
         <th>Book Image</th>
@@ -92,7 +92,28 @@ if($con->connect_error){
 //     echo "<tr><td colspan='3'>No data found</td></tr>";
 // }
 
+if(!isset($_GET['search']))
+{
+    $sql="select * from books";
+$result=$con->query($sql);
+if($result->num_rows>0){
+    while($row=$result->fetch_assoc()){
 
+        echo "<tr>";
+        echo "<td>".$row["usrname"]."</td>";
+        echo "<td><img width ='70px'  height='70px' src='data:image;base64,{$row['photo']}' alt='img'</td>";
+        echo "<td>".$row["bname"]."</td>";
+        echo "<td>".$row["author"]."</td>";
+        echo "<td>".$row["price"]."</td>";
+        echo "<td>".$row["loc"]."</td>";
+        echo "<td>".$row["phone"]."</td>";
+        
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='3'>No data found</td></tr>";
+}
+}
 
 
 if(isset($_GET['search']))

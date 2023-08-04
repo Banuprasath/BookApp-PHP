@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -11,6 +12,10 @@ if($con->connect_error){
 <!DOCTYPE html>
 <html>
  <link rel="stylesheet" href="app.css">
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"></meta>
 <head>
     <title>File Upload Form</title>
 </head>
@@ -41,7 +46,7 @@ if($con->connect_error){
         <br>
 
         <label for="phone">Phone:</label>
-        <input type="number" name="phone" id="phone" required>
+        <input type="tel" name="phone" id="phone" required>
         <br>
 
 
@@ -59,9 +64,7 @@ if($con->connect_error){
 <?php
 
 if (isset($_POST['submit'])){
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+   
     $username=$_POST['username'];
     $bname=$_POST['bname'];
     $author=$_POST['author'];
@@ -87,6 +90,8 @@ else{
 
     if($con->query($sql)){
         echo "image stored success";
+        echo '<div class="alert alert-success">Uploaded Succefully</div>';
+       
     }
     else{
         echo "Error while storing an image??????????????????????";
@@ -100,6 +105,10 @@ else{
 
     echo "Please select the Image";
 }
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
 // This is used to show all data
 // $sql="select * from books";
 // $result=$con->query($sql);

@@ -44,6 +44,7 @@ if(!empty($username) || !empty($phone)|| !empty($password)|| !empty($repassword)
             $stmt->bind_param("sisss",$username,$phone,$password,$repassword,$city);
             $stmt->execute();
             echo "New Record inserted Successfully";
+            header("location:login.html");
          }
         else{
             echo "Someone already register using this email";

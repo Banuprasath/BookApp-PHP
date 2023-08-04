@@ -60,8 +60,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Verify the password
             if ($pass== $users['password']) {
                 // Password is correct, login successful
+
                 echo "Login successful!";
-                header("Location: Dashboard/index.php");
+                $user=$_POST['user'];
+                $pass=$_POST['pass'];
+               
+                $query = "SELECT * FROM userlg  WHERE  username='$user' AND `password` ='$pass'";
+
+                $query_run = mysqli_query($mysqli, $query);
+
+               
+               // print_r($query_run); 
+
+            
+               
+                if(mysqli_num_rows($query_run) > 0)
+                {
+                    foreach($query_run as $student)
+                    {
+                       
+                          $var_value= $student['phone'];
+                    }
+                    $_SESSION['varname'] = $var_value;
+                    setcookie('variableData', $var_value, time() + (86400 * 30));
+                    //header("Location: admin-ds/index.php");
+                }
+               
+                // Get the result
+                
+                
                 exit; 
                 // You can add further actions here, like setting session variables, redirecting, etc.
             } else {
@@ -83,4 +110,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<form method='GET' action="admin-ds/index.php">
+<input type="text" name="ph" value=<?= $var_value;?> />
 
+</form>
+
+
+<?php echo $_GET['ph'] ?>
