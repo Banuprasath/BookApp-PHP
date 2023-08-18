@@ -1,6 +1,7 @@
 <?php
     session_start();
-    require 'dbcon.php';  
+    require 'dbcon.php';
+    //include ('navbar.php');  
 
 ?>
 <!doctype html>
@@ -19,14 +20,30 @@
   
     <div class="container mt-4">
 
-        <?php include('message.php'); ?>
+        <?php include('message.php');   ?>
+
+        <?php 
+                                    //error_reporting(0);
+                                   $nme=$_SESSION["nme"];
+                                   if (!isset($_SESSION["nme"])){
+
+                                    echo "Please Login to view your Books";
+                                    header("admin-view.php");
+                                 }
+                                   
+                                  
+
+                                ?>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>User Dashboard
-                            <a href="code.php" class="btn btn-primary float-end">Add Books</a>
+                        <h4> <?php echo "Welcome $nme 😇" ;?>
+                            <a href="code.php" class="btn btn-primary float-end">Add Books</a>&nbsp;
+                           <a href="/BOOKAPP/chatgpt/index.html" class="btn btn-danger float-end">Log Out</a>&nbsp;&nbsp;&nbsp;
+                            <!-- <a href="/BOOKAPP/chatgpt/index.html" class="btn btn-danger float-end">Log Out</a>&nbsp;&nbsp;&nbsp; -->
+                            
                         </h4>
                     </div>
                     <div class="card-body">
@@ -44,13 +61,29 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                $ph=$_SESSION["user"];  
-                                echo $_POST['phone'];
+                                $ph=$_SESSION["user"];
+                               // var_dump($_SESSION); 
+
+                                //var_dump($ph); 
+                                ini_set('display_errors', '1');
+
+                               // $nme=$_SESSION["nme"];
+
+                                //  if (isset($_SESSION["nme"])) {
+                                //     return $lookup_table[$key];
+                                // } else {
+                                //     return;
+                                // }
+                                            
+                                
+                                
+                                //echo $_POST['phone'];
                                 // this will used to get the login phone no : echo $ph;
                                 //echo $_SESSION["add"];
                                 
                             //echo $x;
-                            require 'samp.php';
+                            //require 'code.php';
+                            
                           
                             // if(!isset($_COOKIE[$cookie_name])) {
                             //     echo "Cookie named '" . $cookie_name . "' is not set!";
@@ -95,7 +128,7 @@
                                 ?>
                                 
                             </tbody>
-                            <tr><td colspan="6" style="color:red; font-size:20px;">Now books in your database!</td></tr>
+                            <!--<tr><td colspan="6" style="color:red; font-size:20px;">Now books in your database!</td></tr>-->
                         </table>
                         <a href="/BOOKAPP/Dashboard/view.php"> VIEW ALL BOOKS</a>
 

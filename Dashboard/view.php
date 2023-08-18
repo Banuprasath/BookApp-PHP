@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <?php include("../navbar/navbar.php");?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +35,12 @@
 </head>
 <body>
 
-<h2>User Data Table</h2>
+<div class="card">
+            <div class="card-header">
+                <h4>Ocean of Books
+                
+</h4>
+</div>
 <form action="" method="GET">
                                     <div class="input-group mb-3">
                                         <input type="text" name="search"  value="<?php 
@@ -149,10 +155,13 @@ if(isset($_GET['search']))
                 padding:30px;
             }
 
-
+td{
+    text-align:center;
+    font-size:23px;
+}
         </style>
             <tr id="no">
-              <b>  <td colspan="7">No Record Found</td>
+              <b>  <td colspan="7" >No Record Found</td>
         </b>        </tr>
         <?php
     }

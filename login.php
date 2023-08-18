@@ -31,6 +31,7 @@ if ($mysqli->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     // Get user input from the login form
     $user=$_POST['user'];
          $pass=$_POST['pass'];
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get the result
     $result = $stmt->get_result();
-
+    print_r($result);
     // Check if the query was executed successfully
     if ($result != false) {
         // Check if the user exists
@@ -80,16 +81,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     {
                        
                           $var_value= $student['phone'];
+                          $var_name=$student['username'];
                     }
                     $_SESSION['varname'] = $var_value;
-                    setcookie('variableData', $var_value, time() + (86400 * 30));
+                    //setcookie('variableData', $var_value, time() + (86400 * 30));
                     //header("Location: admin-ds/index.php");
                 }
                
                 // Get the result
                 
                 
-                exit; 
+                //exit; 
                 // You can add further actions here, like setting session variables, redirecting, etc.
             } else {
                 // Password is incorrect
@@ -110,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<form method='GET' action="admin-ds/index.php">
-<input type="text" name="ph" value=<?= $var_value;?> />
+
+
 
 </form>
 

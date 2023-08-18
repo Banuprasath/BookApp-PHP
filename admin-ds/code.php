@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!doctype html>
 
 
@@ -56,11 +53,11 @@ session_start();
         <input type="text" name="loc" id="location" class="form-control"  required>
         <br>
 </div>
-        <div class="md-3">
+     <!--  <div class="md-3">
         <label for="phone">Phone:</label>
         <input type="tel" name="phone" id="phone" class="form-control"  required>
         <br>
-</div>
+</div>-->
 
         <div class="md-3">
 
@@ -70,7 +67,7 @@ session_start();
         
 </div>
         <div class="md-3">
-        <input type="submit" value="submit" name="submit" class="form-control" >
+        <input type="submit" value="submit" name="submit" class="form-control btn btn-success" >
     </form>
 </div>
         </div>
@@ -100,8 +97,11 @@ if (isset($_POST['submit'])){
     $author=$_POST['author'];
     $price=$_POST['price'];
     $loc=$_POST['loc'];
-    $phone=$_POST['phone'];
-   // $uploadimg=$_POST['uploadimg'];    
+   // $phone=$_POST['phone'];
+   // $uploadimg=$_POST['uploadimg'];   
+   
+   // trying to add phone no during registration
+   
 
 
 
@@ -111,19 +111,23 @@ if(getimagesize($_FILES['photo']['tmp_name'])==false){
 }
 else{
     session_start();
+    $ph=$_SESSION["user"];  
+    echo $ph;
     $photo=$_FILES['photo']['tmp_name'];
     $name=$_FILES['photo']['name'];
     $photo=file_get_contents($photo);
     $photo=base64_encode($photo);
+    // $s=$_SESSION["add"];
+    // echo $s;
     //print_r($uploadimg);
-    $sql="INSERT INTO books (usrname,bname,author,price,loc,phone,photo) VALUES ('$username','$bname','$author','$price','$loc',$phone,'$photo')";
+    $sql="INSERT INTO books (usrname,bname,author,price,loc,phone,photo) VALUES ('$username','$bname','$author','$price','$loc',$ph,'$photo')";
    //$sql="INSERT INTO books (photo) VALUES ('$uploadimg')";
 
     if($con->query($sql)){
         //echo "image stored success";
         echo '<div class="alert alert-success">Uploaded Succefully</div>';
         $_SESSION['message']="Book Added Succesfully";
-        header("location: index.php");
+        //header("location: index.php");
         exit(0);
        
     }
@@ -134,6 +138,8 @@ else{
 
    // echo "You can store";
    $_SESSION["add"] = $phone;
+
+   echo $_SESSION["add"];
 }
 }
 else{

@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       
 
             // Verify the password
-            if ($pass== $users['password']) {
+            if ($pass== $users['password'] && $user == $users['username']) {
                 // Password is correct, login successful
 
                 echo "Login successful!";
@@ -62,38 +62,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     {
                        
                           $var_value= $student['phone'];
+                          $name=$student['username'];
                     }
-                    //echo $var_value;
+                
                     $x=$var_value;
-                //     session_start();
-                //     session_register('variable_name');
-                //    // $_SESSION['variable_name']=$var_value;
+                
                     
                     header("Location: index.php");
                 }
             
-                $_SESSION["user"] = $var_value;  
-                // $cookie_name = "phone";
-                // $cookie_value = "red";
-                // //echo $cookie_value;
-                // setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+                $_SESSION["user"] = $var_value;
+                $_SESSION["nme"] = $name;  
                 
 
-                //On page 2
-                
                
-                // Get the result
-                
-                
-                exit; 
+             //exit; 
                 // You can add further actions here, like setting session variables, redirecting, etc.
             } else {
                 // Password is incorrect
-                echo "Incorrect password. Please try again.";
+                echo "Incorrect password or username Please try again.";
             }
         } else {
             // User does not exist
-            echo "User not found. Please check your username or register if you don't have an account.";
+            header("Location: notfound.php");
+            
+            echo "<center><h3> User not found. Please check your username or register if you don't have an account.</h3></center>";
         }
     } else {
         // Error executing the query
