@@ -107,7 +107,7 @@ if (isset($_POST['submit'])){
 
 if(getimagesize($_FILES['photo']['tmp_name'])==false){
 
-    echo "Please select the img";
+    echo "<h3>Please select the img</h3>";
 }
 else{
     session_start();
@@ -137,9 +137,9 @@ else{
     }
 
    // echo "You can store";
-   $_SESSION["add"] = $phone;
+//    $_SESSION["add"] = $phone;
 
-   echo $_SESSION["add"];
+//    echo $_SESSION["add"];
 }
 }
 else{

@@ -1,6 +1,6 @@
 
 <?php
-session_start();
+
 ?>
 
 <?php
@@ -66,17 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 
                     $x=$var_value;
-                
+                    
                     
                     header("Location: index.php");
                 }
-            
+                session_start();
                 $_SESSION["user"] = $var_value;
                 $_SESSION["nme"] = $name;  
                 
 
                
-             //exit; 
+             exit; 
                 // You can add further actions here, like setting session variables, redirecting, etc.
             } else {
                 // Password is incorrect

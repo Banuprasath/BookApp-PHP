@@ -1,3 +1,4 @@
+<script>alert('Sure you want to delete?');</script>
 <?php
             
             $con = new mysqli("localhost","root","","my_book_lg");

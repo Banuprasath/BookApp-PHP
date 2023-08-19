@@ -12,7 +12,7 @@
         <a class="nav-link" href="/BOOKAPP/login.html">Sell Books</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Buy Books</a>
+        <a class="nav-link" href="/BOOKAPP/Dashboard/view.php">Buy Books</a>
       </li>
 
     </ul>

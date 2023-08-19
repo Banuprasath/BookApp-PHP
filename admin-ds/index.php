@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'dbcon.php';
-    //include ('navbar.php');  
+    include ('../navbar/navbar.php');  
 
 ?>
 <!doctype html>
@@ -23,7 +23,8 @@
         <?php include('message.php');   ?>
 
         <?php 
-                                    //error_reporting(0);
+        //To hide all errors
+                                    error_reporting(0);
                                    $nme=$_SESSION["nme"];
                                    if (!isset($_SESSION["nme"])){
 
@@ -41,9 +42,8 @@
                     <div class="card-header">
                         <h4> <?php echo "Welcome $nme 😇" ;?>
                             <a href="code.php" class="btn btn-primary float-end">Add Books</a>&nbsp;
-                           <a href="/BOOKAPP/chatgpt/index.html" class="btn btn-danger float-end">Log Out</a>&nbsp;&nbsp;&nbsp;
-                            <!-- <a href="/BOOKAPP/chatgpt/index.html" class="btn btn-danger float-end">Log Out</a>&nbsp;&nbsp;&nbsp; -->
-                            
+                           <!-- <a href="/BOOKAPP/chatgpt/index.html" class="btn btn-danger float-end">Log Out</a>&nbsp;&nbsp;&nbsp; -->
+                           <a href="Logout.php" class="btn btn-danger float-end">Log Out</a>&nbsp;&nbsp;&nbsp;
                         </h4>
                     </div>
                     <div class="card-body">
@@ -62,36 +62,40 @@
                             <tbody>
                                 <?php 
                                 $ph=$_SESSION["user"];
-                               // var_dump($_SESSION); 
+                              // var_dump($_SESSION); 
+                               if ($_SESSION == NULL){
+                                exit;
+                               }
 
-                                //var_dump($ph); 
+                            //     var_dump($ph); 
                                 ini_set('display_errors', '1');
 
-                               // $nme=$_SESSION["nme"];
+                           /*
+                               $nme=$_SESSION["nme"];
 
-                                //  if (isset($_SESSION["nme"])) {
-                                //     return $lookup_table[$key];
-                                // } else {
-                                //     return;
-                                // }
+                                 if (isset($_SESSION["nme"])) {
+                                    return $lookup_table[$key];
+                                } else {
+                                    return;
+                                }
                                             
                                 
                                 
-                                //echo $_POST['phone'];
-                                // this will used to get the login phone no : echo $ph;
-                                //echo $_SESSION["add"];
+                                echo $_POST['phone'];
+                                this will used to get the login phone no : echo $ph;
+                                echo $_SESSION["add"];
                                 
-                            //echo $x;
-                            //require 'code.php';
+                            echo $x;
+                            require 'code.php';
                             
                           
-                            // if(!isset($_COOKIE[$cookie_name])) {
-                            //     echo "Cookie named '" . $cookie_name . "' is not set!";
-                            //   } else {
-                            //     echo "Cookie '" . $cookie_name . "' is set!<br>";
-                            //     echo "Value is: " . $_COOKIE[$cookie_name];
-                            //   }
-
+                            if(!isset($_COOKIE[$cookie_name])) {
+                                echo "Cookie named '" . $cookie_name . "' is not set!";
+                              } else {
+                                echo "Cookie '" . $cookie_name . "' is set!<br>";
+                                echo "Value is: " . $_COOKIE[$cookie_name];
+                              }
+*/
 
                                $query = "SELECT * FROM books WHERE phone='$ph'";
                                     $query_run = mysqli_query($con, $query);
@@ -112,16 +116,20 @@
                                                     <a href="admin-view.php?id=<?= $student['book_id']; ?>" class="btn btn-info btn-sm">View</a>
                                                     <a href="edit.php?id=<?= $student['book_id']; ?>" class="btn btn-success btn-sm">Edit</a>
                                                     <form action="delete.php" method="POST" class="d-inline">
+                                                        
                                                         <button type="submit" name="delete_student" value="<?=$student['book_id'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                   
                                                     </form>
                                                 </td>
                                             </tr>
                                             
                                             <?php
+                                           
                                         }
                                     }
                                     else
                                     {
+
                                         echo "<h5>Please upload your first Book : ) </h5>";
             
                                     }

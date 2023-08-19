@@ -1,3 +1,6 @@
+<script>
+    alert("Hello")
+</script>
 <?php
 // print_r($_POST);
 // // if (!isset($_POST['submit']))
@@ -85,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     $_SESSION['varname'] = $var_value;
                     //setcookie('variableData', $var_value, time() + (86400 * 30));
-                    //header("Location: admin-ds/index.php");
+                    header("Location: admin-ds/index.php");
                 }
                
                 // Get the result
