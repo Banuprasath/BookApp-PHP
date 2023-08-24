@@ -7,8 +7,8 @@ $password=$_POST['password'];
 $repassword=$_POST['repassword'];
 $city=$_POST['city'];
 
-
-print_r($_POST);
+// check all the registered values
+//print_r($_POST);
 
 if(!empty($username) || !empty($phone)|| !empty($password)|| !empty($repassword)|| !empty($location)){
 
@@ -47,6 +47,8 @@ if(!empty($username) || !empty($phone)|| !empty($password)|| !empty($repassword)
             header("location:login.html");
          }
         else{
+            echo "<script>alert(' Someone already registered using this mobile number');</script>";
+             echo "<script type='text/javascript'> window.location.href='index.html' </script> ";
             echo "Someone already register using this email";
 
         }

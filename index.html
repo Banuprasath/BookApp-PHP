@@ -41,7 +41,8 @@
 <body>
     <div class="container">
         <h2>Registration Form</h2>
-        <form action="register.php" method="post">
+        <form action="register.php" method="post" name="myform" onsubmit="return validate()">
+
             <label for="name">Name:</label>
             <input type="text" id="username" name="username" required>
 
@@ -49,10 +50,10 @@
             <input type="number" id="phone" name="phone" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" minlength="8" maxlength="12" required>
 
             <label for="repassword">Confirm Password:</label>
-            <input type="password" id="repassword" name="repassword" required>
+            <input type="password" id="repassword" name="repassword" minlength="8" maxlength="12" required>
 
             <label for="location">Location:</label>
             <input type="text" id="username" name="city" required>
@@ -66,9 +67,27 @@
             </select> -->
 
             <button type="submit">Register</button>
+
         </form>
         <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
 </body>
+
+<script>
+    function validate() {
+        var name = myform.username.value;
+        var phone = myform.phone.value;
+        var password = myform.password.value;
+        var repassword = myform.repassword.value;
+        var loc = myform.city.value;
+        /* || phone == " " || password == " " || repassword == " " || loc == " " */
+
+        if (password != repassword) {
+            alert("Password and repassword mismatch please recheck")
+            return false;
+
+        }
+    }
+</script>
 
 </html>

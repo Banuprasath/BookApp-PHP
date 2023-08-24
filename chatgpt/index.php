@@ -4,8 +4,9 @@
 <head>
     <title>Book Bazaar - Buy and Sell Books</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <style>
-        body {
+         body {
             background-color: #f8f9fa;
             background-image: url('back.jpg');
             background-size: cover;
@@ -124,27 +125,28 @@
     <br>
     <br>
     <br>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Contact Us</h4>
-                    <p>Email: info@bookbazaar.com</p>
-                    <p>Phone: (123) 456-7890</p>
-                </div>
-                <div class="col-md-4">
-                    <h4>Follow Us</h4>
-                    <a href="#" class="text-white">Facebook</a><br>
-                    <a href="#" class="text-white">Twitter</a><br>
-                    <a href="#" class="text-white">Instagram</a>
-                </div>
-                <div class="col-md-4">
-                    <h4>Share</h4>
-                    <a href="#" class="text-white">Share via Email</a><br>
-                    <a href="#" class="text-white">Share on Social Media</a>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p>Email: banuprasath@gmail.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <i class="fa fa-github"></i><a href="#" class="text-white" style="margin-right: 10px;"> GitHub</a><br>
+                <i class="fa fa-linkedin"></i><a href="#" class="text-white" style="margin-right: 10px;">  Linked In</a><br>
+                <i class="fa fa-instagram" aria-hidden="true"></i> <a href="#" class="text-white">Instagram</a>
+            </div>
+            <div class="col-md-4">
+                <h4>Share</h4>
+                <a href="#" class="text-white" style="margin-right: 10px;">Share via Email</a><br>
+                <a href="#" class="text-white">Share on Social Media</a>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

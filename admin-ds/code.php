@@ -45,7 +45,7 @@
 </div>
         <div class="md-3">
         <label for="price">Price:</label>
-        <input type="number" name="price" id="price" class="form-control"  required>
+        <input type="number" name="price" id="price" class="form-control" maxlength="5" required>
         <br>
 </div>
         <div class="md-3">
